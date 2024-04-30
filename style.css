@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 80%;
+    margin: 0 auto;
+}
+.banner_section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+}
+.header_lef_seide{
+    width: 45%;
+}
+.banner_heading{
+    font-size: 55px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 1px 4px 4px rgba(60,53,53,0.43);
+
+}
+.banner_heading span{
+    color: #6c63ff;
+}
+.nav_section{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav_logo{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+.nav_logo img{
+    height: 55px;
+}
+.nav_logo h5{
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+}
+.nav_menu_section{
+    width: 50%;
+}
+.nav_menus{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 0;
+    list-style: none;
+}
+.nav_menus li{
+    font-size: 17px;
+    font-weight: 600;
+}
+.nav_menus li a{
+    text-decoration: none;
+    color: black;
+}
+.signup_btn, .login_btn{
+    padding: 7px 15px;
+    display: inline-block;
+    border-radius: 5px;
+    background-color: #9FA8DA;
+    cursor: pointer;
+}
+.signup_btn a, .login_btn a{
+    color: white !important;
+}
+.login_btn{
+    background-color: #ff6582;
+}
+.hide_btn{
+    display: none;
+}
+
+.books_sections{
+    width: 80%;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.author{
+    font-style: italic;
+    text-decoration: underline;
+}
+.book_btn{
+    background-color: #6c63ff;
+    color: white;
+}
+.book_btn:hover{
+    background: #6c63ff;
+}
+
+/* footer */
+.footer_area{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+.social_media_icons{
+    display: flex;
+    gap: 40px;
+}
+.social_media_icons img{
+    height: 60px;
+}
+.menu_links{
+    display: flex;
+    gap: 20px;
+}
+.footer_text{
+    font-size: 18px;
+    letter-spacing: 5px;
+}
