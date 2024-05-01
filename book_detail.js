@@ -100,7 +100,11 @@ const handleWishlist=()=>{
         user,
        "books": [param]
     }
-    fetch("https://thebookishnook.onrender.com/book/wishlist/", {
+    if (user === 'undefined' || user === null){
+        window.location.href = 'login.html'
+    }
+    else{
+        fetch("https://thebookishnook.onrender.com/book/wishlist/", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(info),
@@ -108,6 +112,8 @@ const handleWishlist=()=>{
           .then((res) => res.json())
           .then((data) => console.log(data))
           .catch((err) => console.log(err));
+          window.location.href = 'profile.html'
+    }
 }
 getBookDetail();
 loadBookReviews();

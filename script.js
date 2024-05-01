@@ -48,7 +48,7 @@ const handleLogout = ()=>{
   fetch("https://thebookishnook.onrender.com/accounts/logout/",{
     method: "GET",
     headers: {
-      'Authorization': `Token ${token}`,
+      Authorization: `Token ${token}`,
       'Content-Type': 'application/json'
     }
   })
