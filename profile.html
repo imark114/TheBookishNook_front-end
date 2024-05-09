@@ -7,9 +7,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="./profile.css">
+    <link rel="stylesheet" href="./auth.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
     <script defer src="./script.js"></script>
     <script defer src="./profile.js"></script>
+
 </head>
 <body>
     <nav class="nav_section">
@@ -31,15 +33,33 @@
             </ul>
         </div>
     </nav>
+    <h2 class="profile_heading">Welcome To Your Profile</h2>
+    <div class="profile_section">
+            <div class="side_nav">
+                <a href="./wishlist.html">Your Wishlist</a>
+                <a href="./cart.html">Your Cart</a>
+            </div>
+        <div class="update_form">
+            <div class="form_section">
+                <form onsubmit="updateProfile(event)">
+                    <p class="text-danger" id="error"></p>
+                    <input id="u_username" required type="text" placeholder="username">
+                    <input id="u_first_name" required type="text" placeholder="First Name">
+                    <input id="u_last_name" required type="text" placeholder="Last Name">
+                    <input id="u_email" required type="email" placeholder="You Email">
+                    <input class="submit_btn" required type="submit" value="Update">
+                    <p id="u_success" class="text-success"></p>
+                </form>
+        </div>
+    </div>
 
-
-    <div class="profile-div">
+    <!-- <div class="profile-div">
         <h1>Welcome <span id="name" ></span> </h1>
         <h3>Your Wishlist Books: <span id="count"></span></h3>
 
         <div id="wishlist_container" class="books_sections">
 
         </div>
-    </div>
+    </div> -->
 </body>
 </html>

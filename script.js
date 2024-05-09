@@ -46,7 +46,7 @@ const handleBooks = (books) =>{
 const handleLogout = ()=>{
   const token = localStorage.getItem('token')
   fetch("https://thebookishnook.onrender.com/accounts/logout/",{
-    method: "GET",
+    method: "POST",
     headers: {
       Authorization: `Token ${token}`,
       'Content-Type': 'application/json'

@@ -1,9 +1,17 @@
 const user_id = localStorage.getItem('user_id')
-const fethUser= ()=>{
-    const span = document.getElementById("name")
+const loadUserData= ()=>{
+    const username = document.getElementById("u_username");
+    const first_name = document.getElementById("u_first_name");
+    const last_name = document.getElementById("u_last_name");
+    const email = document.getElementById("u_email");
     fetch(`https://thebookishnook.onrender.com/accounts/list/${user_id}`)
     .then(res=>res.json())
-    .then(data=>( span.innerText= data.first_name +' ' + data.last_name))
+    .then(data=>{
+        username.value = data.username;
+        first_name.value = data.first_name;
+        last_name.value = data.last_name;
+        email.value = data.email;
+    })
 }
 
 const handleWishlist = ()=>{
@@ -25,6 +33,7 @@ const handleWishlist = ()=>{
         <div class="card-body">
           <h5 class="card-title">${info.title}</h5>
           <p class="card-text"><strong>Author: </strong><span class="author">${info.author}</span></p>
+          <a href="./book_details.html?bookId=${info.id}" class="btn book_btn">Want To Read</a>
         </div>
       </div>
         `
@@ -35,5 +44,33 @@ const handleWishlist = ()=>{
     })
 }
 
-fethUser();
+const updateProfile = (event)=>{
+    event.preventDefault();
+    const success = document.getElementById("u_success")
+    const username = getValue("u_username");
+    const first_name = getValue("u_first_name");
+    const last_name = getValue("u_last_name");
+    const email = getValue("u_email");
+    const info = {
+        username,
+        first_name,
+        last_name,
+        email
+    }
+    fetch(`https://thebookishnook.onrender.com/accounts/list/${user_id}/`,{
+        method:"PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(info),
+    })
+    .then(res=>res.json())
+    .then(data=> success.innerText="Updated Successfully");
+}
+
+
+const getValue = (id)=>{
+    const value = document.getElementById(id).value;
+    return value;
+  }
+
+loadUserData();
 handleWishlist();

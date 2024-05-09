@@ -71,19 +71,19 @@ const showReviews = (reviews)=>{
 }
 
 const handleBorrowBook = ()=>{
-    const param = new URLSearchParams(window.location.search).get('bookId')
+    const param = new URLSearchParams(window.location.search).get('bookId');
+    const error = document.getElementById("error_msg")
     const book_quantity = document.getElementById("book_quantity").innerHTML
     let quantity = parseInt(book_quantity)
     const user_id = localStorage.getItem('user_id')
     console.log(user_id);
     if (user_id === 'undefined' || user_id === null){
         window.location.href = 'login.html'
-        console.log("hello");
     }
     else{
-        console.log("world");
-        quantity-=1;
-        fetch(`https://thebookishnook.onrender.com/book/list/${param}`, {
+        if (quantity !== 0){
+            quantity-=1;
+            fetch(`https://thebookishnook.onrender.com/book/list/${param}/`, {
             method: "PATCH",
             headers:{ "Content-Type" : "application/json"},
             body: JSON.stringify({"quantiry": quantity, "can_review": true})
@@ -91,6 +91,24 @@ const handleBorrowBook = ()=>{
         .then(res=> res.json())
         .then(data=>console.log(data))
         .catch(err=>console.log(err))
+        const info= {
+            coustomer: user_id,
+            book: param
+        }
+        console.log(info);
+        fetch("https://thebookishnook.onrender.com/borrow_book/list/",{
+           method: "POST",
+           headers: { "Content-Type": "application/json" },
+           body: JSON.stringify(info),
+
+        })
+        .then(res=> res.json())
+        .then(data=>console.log(data))
+        window.location.href = 'profile.html'
+        }
+        else{
+            error.innerText = "Sorry... There is no avilable copy of this book"
+        }
     }
 }
 const handleWishlist=()=>{
